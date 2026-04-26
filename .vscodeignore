@@ -1,0 +1,21 @@
+# Ignore development files
+.vscode/**
+.git/**
+node_modules/**
+src/**
+*.ts
+!*.d.ts
+tsconfig.json
+eslint.config.js
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Ignore test files
+**/*.test.*
+**/test/**
+
+# Ignore build artifacts (except out/ which contains the compiled extension)
+!out/**

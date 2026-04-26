@@ -1,0 +1,121 @@
+{
+  "name": "dscli-vscode",
+  "displayName": "dscli - DeepSeek CLI for VSCode",
+  "description": "VSCode extension for dscli - AI-enhanced developer toolbox with DeepSeek integration",
+  "version": "0.3.1",
+  "publisher": "dscli",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "AI",
+    "Programming Languages",
+    "Debuggers"
+  ],
+  "keywords": [
+    "deepseek",
+    "ai",
+    "chat",
+    "programming",
+    "assistant",
+    "dscli"
+  ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dscli.openChat",
+        "title": "打开 dscli 问答面板",
+        "category": "dscli",
+        "icon": {
+          "light": "images/chat-light.svg",
+          "dark": "images/chat-dark.svg"
+        }
+      },
+      {
+        "command": "dscli.analyzeFile",
+        "title": "dscli: 分析当前文件",
+        "category": "dscli"
+      },
+      {
+        "command": "dscli.setApiKey",
+        "title": "dscli: Set API Key",
+        "category": "dscli"
+      },
+      {
+        "command": "dscli.checkStatus",
+        "title": "dscli: 检查系统状态",
+        "category": "dscli"
+      },
+      {
+        "command": "dscli.clearHistory",
+        "title": "dscli: 清空对话历史",
+        "category": "dscli"
+      },
+      {
+        "command": "dscli.interrupt",
+        "title": "dscli: 中断当前操作",
+        "category": "dscli"
+      }
+    ],
+    "configuration": {
+      "title": "dscli",
+      "properties": {
+        "dscli.executablePath": {
+          "type": "string",
+          "default": "dscli",
+          "description": "dscli CLI 路径。如果在 PATH 中可直接使用 'dscli'"
+        },
+        "dscli.model": {
+          "type": "string",
+          "default": "deepseek-chat",
+          "enum": ["deepseek-chat", "deepseek-reasoner"],
+          "description": "使用的 DeepSeek 模型"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "package": "vsce package",
+    "build": "npm run compile && vsce package"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@vscode/test-electron": "^1.6.2",
+    "eslint": "^9.0.0",
+    "globals": "^17.4.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitcode.com/dscli/dscli.vscode.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://gitcode.com/dscli/dscli.vscode/issues"
+  },
+  "homepage": "https://gitcode.com/dscli/dscli.vscode#readme"
+}
